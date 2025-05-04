@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Windows</title>
+    <style>
+        * {
+            font-weight: 100;
+            font-family: 微软雅黑, sans-serif;
+            user-select: none;
+        }
+        body {
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            display: inline;
+        }
+        .header .home-page {
+            text-decoration: none;
+            color: #000;
+            font-size: 17.5px;
+        }
+        .header .home-page:hover {
+            text-decoration: underline;
+            color: #0000f0;
+        }
+        .header .home-page:active {
+            color: #551a8b;
+        }
+        .download {
+            display: flex;
+            justify-content: center;
+        }
+        .message {
+            text-align: center;
+        }
+        .ws2022bt {
+            text-align: center;
+            cursor: pointer;
+        }
+        .ws2022ed2k {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .bottom-placeholder {
+            height: 100px;
+        }
+    </style>
+    <script>
+        function copyText(version) {
+            const magnetLinks = {
+                ws2022bt: "magnet:?xt=urn:btih:40810feeda21cb5fbcfa2f4eebf2fd9356378412&dn=zh-cn_windows_server_2022_updated_sep_2024_x64_dvd_cab4e960.iso&xl=6155229184",
+                ws2022ed2k: "ed2k://|file|zh-cn_windows_server_2022_updated_sep_2024_x64_dvd_cab4e960.iso|6155229184|3B389D2652259B8BA29E4736E701616A|/"
+            };
+        
+            const magnetLink = magnetLinks[version];
+            if (magnetLink) {
+                navigator.clipboard.writeText(magnetLink).then(() => {
+                    document.getElementById('message').textContent = 'BT(或ed2k)已复制';
+                    setTimeout(() => {
+                        document.getElementById('message').textContent = '等待处理复制任务中';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    document.getElementById('message').textContent = '复制失败';
+                });
+            } else {
+                document.getElementById('message').textContent = '未找到对应的BT磁力链(或ed2k)';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title1">Windows Server 2022</h1><br>
+        <a href="./sf-cn.html" class="home-page">返回首页</a>
+    </div>
+    <h2 class="t">状态/复制</h2>
+    <div class="message" id="message">等待处理复制任务中</div>
+    <h2 class="t1">详情信息</h2>
+    <div class="content">
+        <p>Windows Server 2022 是一款功能强大的服务器操作系统，特别适合需要高安全性、混合云<br>功能和高性能计算的企业。它提供了长达 10 年的支持周期，确保企业能够长期稳定地使用。</p>
+        <p>厂商: Microsoft(微软)</p>
+        <p>发布日期: 2021年8月18日</p>
+        <p>主流支持结束日期: 2026年10月13日</p>
+        <p>延长支持结束日期: 2031年10月14日</p>
+        <p>特点: 管理工具、安全性增强、混合云功能......</p>
+    </div>
+    <h2 class="t2">下载方式/版本</h2>
+    <div class="download">
+        <div class="dc">
+            <p>Windows Server 2022 (updated Sep 2024) (x64) - DVD (Chinese-Simplified)</p>
+            <div onclick="copyText('ws2022bt')" class="ws2022bt">BT磁力链(点击复制)</div>
+            <div onclick="copyText('ws2022ed2k')" class="ws2022ed2k">ed2k(点击复制)</div>
+        </div>
+    </div>
+    <div class="bottom-placeholder"></div>
+</body>
+</html>

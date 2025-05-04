@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Windows</title>
+    <style>
+        * {
+            font-weight: 100;
+            font-family: 微软雅黑, sans-serif;
+            user-select: none;
+        }
+        body {
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            display: inline;
+        }
+        .header .home-page {
+            text-decoration: none;
+            color: #000;
+            font-size: 17.5px;
+        }
+        .header .home-page:hover {
+            text-decoration: underline;
+            color: #0000f0;
+        }
+        .header .home-page:active {
+            color: #551a8b;
+        }
+        .download {
+            display: flex;
+            justify-content: center;
+        }
+        .message {
+            text-align: center;
+        }
+        .ws2025bt {
+            text-align: center;
+            cursor: pointer;
+        }
+        .ws2025ed2k {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .bottom-placeholder {
+            height: 100px;
+        }
+    </style>
+    <script>
+        function copyText(version) {
+            const magnetLinks = {
+                ws2025bt: "magnet:?xt=urn:btih:376b9a7cf1e77823563491794c697640a27612d3&dn=zh-cn_windows_server_2025_updated_march_2025_x64_dvd_e24d2ee5.iso&xl=8022067200",
+                ws2025ed2k: "ed2k://|file|zh-cn_windows_server_2025_updated_april_2025_x64_dvd_ea86301d.iso|7050024960|A7CD01D3049667095B5FCD98F12B7B41|/"
+            };
+        
+            const magnetLink = magnetLinks[version];
+            if (magnetLink) {
+                navigator.clipboard.writeText(magnetLink).then(() => {
+                    document.getElementById('message').textContent = 'BT(或ed2k)已复制';
+                    setTimeout(() => {
+                        document.getElementById('message').textContent = '等待处理复制任务中';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    document.getElementById('message').textContent = '复制失败';
+                });
+            } else {
+                document.getElementById('message').textContent = '未找到对应的BT磁力链(或ed2k)';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title1">Windows Server 2025</h1><br>
+        <a href="./sf-cn.html" class="home-page">返回首页</a>
+    </div>
+    <h2 class="t">状态/复制</h2>
+    <div class="message" id="message">等待处理复制任务中</div>
+    <h2 class="t1">详情信息</h2>
+    <div class="content">
+        <p>Windows Server 2025 是微软最新发布的服务器操作系统，<br>基于 Windows 11 内核，继承了 Windows Server 2022 的优点，并在<br>安全性、性能、混合云功能等方面进行了显著改进。</p>
+        <p>厂商: Microsoft(微软)</p>
+        <p>发布日期: 2024年11月1日</p>
+        <p>主流支持结束日期: 2029年10月9日</p>
+        <p>延长支持结束日期: 2034年10月10日</p>
+        <p>特点: 性能提升、安全性增强、混合云功能、现代化桌面体验、新增工具和功能......</p>
+    </div>
+    <h2 class="t2">下载方式/版本</h2>
+    <div class="download">
+        <div class="dc">
+            <p>Windows Server 2025 (updated April 2025) (x64) - DVD (Chinese-Simplified)</p>
+            <div onclick="copyText('ws2025bt')" class="ws2025bt">BT磁力链(点击复制)</div>
+            <div onclick="copyText('ws2025ed2k')" class="ws2025ed2k">ed2k(点击复制)</div>
+        </div>
+    </div>
+    <div class="bottom-placeholder"></div>
+</body>
+</html>

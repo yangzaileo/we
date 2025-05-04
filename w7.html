@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Windows</title>
+    <style>
+        * {
+            font-weight: 100;
+            font-family: 微软雅黑, sans-serif;
+            user-select: none;
+        }
+        body {
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            display: inline;
+        }
+        .header .home-page {
+            text-decoration: none;
+            color: #000;
+            font-size: 17.5px;
+        }
+        .header .home-page:hover {
+            text-decoration: underline;
+            color: #0000f0;
+        }
+        .header .home-page:active {
+            color: #551a8b;
+        }
+        .download {
+            display: flex;
+            justify-content: center;
+        }
+        .message {
+            text-align: center;
+        }
+        .w7bt {
+            text-align: center;
+            cursor: pointer;
+        }
+        .w7ed2k {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .bottom-placeholder {
+            height: 100px;
+        }
+    </style>
+    <script>
+        function copyText(version) {
+            const magnetLinks = {
+                w7bt: "magnet:?xt=urn:btih:E86414F638E11104248108B155BE9408A8362509&dn=cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso&xl=3420557312",
+                w7ed2k: "ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/"
+            };
+        
+            const magnetLink = magnetLinks[version];
+            if (magnetLink) {
+                navigator.clipboard.writeText(magnetLink).then(() => {
+                    document.getElementById('message').textContent = 'BT(或ed2k)已复制';
+                    setTimeout(() => {
+                        document.getElementById('message').textContent = '等待处理复制任务中';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    document.getElementById('message').textContent = '复制失败';
+                });
+            } else {
+                document.getElementById('message').textContent = '未找到对应的BT磁力链(或ed2k)';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title1">Windows 7</h1><br>
+        <a href="./sf-cn.html" class="home-page">返回首页</a>
+    </div>
+    <h2 class="t">状态/复制</h2>
+    <div class="message" id="message">等待处理复制任务中</div>
+    <h2 class="t1">详情信息</h2>
+    <div class="content">
+        <p>Windows 7 是微软于 2009 年发布的一款经典桌面操作系统，它在用户界面、性能优化和系统稳定性方面进行了大量改进，是许多用户心目中的经典系统。</p>
+        <p>厂商: Microsoft(微软)</p>
+        <p>发布日期: 2009年10月22日</p>
+        <p>主流支持结束日期: 2015年1月13日</p>
+        <p>延长支持结束日期: 2020年1月14日</p>
+        <p>特点: 用户界面、性能优化、系统稳定性、安全性、兼容性......</p>
+    </div>
+    <h2 class="t2">下载方式/版本</h2>
+    <div class="download">
+        <div class="dc">
+            <p>Windows 7 Ultimate with Service Pack 1 (x64) - DVD (Chinese-Simplified)</p>
+            <div onclick="copyText('w7bt')" class="w7bt">BT磁力链(点击复制)</div>
+            <div onclick="copyText('w7ed2k')" class="w7ed2k">ed2k(点击复制)</div>
+        </div>
+    </div>
+    <div class="bottom-placeholder"></div>
+</body>
+</html>

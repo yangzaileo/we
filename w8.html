@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Windows</title>
+    <style>
+        * {
+            font-weight: 100;
+            font-family: 微软雅黑, sans-serif;
+            user-select: none;
+        }
+        body {
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            display: inline;
+        }
+        .header .home-page {
+            text-decoration: none;
+            color: #000;
+            font-size: 17.5px;
+        }
+        .header .home-page:hover {
+            text-decoration: underline;
+            color: #0000f0;
+        }
+        .header .home-page:active {
+            color: #551a8b;
+        }
+        .download {
+            display: flex;
+            justify-content: center;
+        }
+        .message {
+            text-align: center;
+        }
+        .w8ed2k {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .bottom-placeholder {
+            height: 100px;
+        }
+    </style>
+    <script>
+        function copyText(version) {
+            const magnetLinks = {
+                w8ed2k: "ed2k://|file|cn_windows_8_x64_dvd_915407.iso|3652950016|5C7F8C212BD3A1827866563773A431C2|/"
+            };
+        
+            const magnetLink = magnetLinks[version];
+            if (magnetLink) {
+                navigator.clipboard.writeText(magnetLink).then(() => {
+                    document.getElementById('message').textContent = 'BT(或ed2k)已复制';
+                    setTimeout(() => {
+                        document.getElementById('message').textContent = '等待处理复制任务中';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    document.getElementById('message').textContent = '复制失败';
+                });
+            } else {
+                document.getElementById('message').textContent = '未找到对应的BT磁力链(或ed2k)';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title1">Windows 8</h1><br>
+        <a href="./sf-cn.html" class="home-page">返回首页</a>
+    </div>
+    <h2 class="t">状态/复制</h2>
+    <div class="message" id="message">等待处理复制任务中</div>
+    <h2 class="t1">详情信息</h2>
+    <div class="content">
+        <p>Windows 8 是微软于 2012 年发布的一款操作系统，它是 Windows 系列中一个具有重<br>大变革的版本，特别是在用户界面和交互方式上进行了大胆创新。然而，由于一些设计上的改变，Windows 8 也引发了部分用户的争议。</p>
+        <p>厂商: Microsoft(微软)</p>
+        <p>发布日期: 2012年10月26日</p>
+        <p>主流支持结束日期: 2015年1月12日</p>
+        <p>延长支持结束日期: 2023年1月9日</p>
+        <p>特点: 用户界面、功能改进、性能优化、安全性、兼容性......</p>
+    </div>
+    <h2 class="t2">下载方式/版本</h2>
+    <div class="download">
+        <div class="dc">
+            <p>Windows 8 (x64) - DVD (Chinese-Simplified)</p>
+            <div onclick="copyText('w8ed2k')" class="w8ed2k">ed2k(点击复制)</div>
+        </div>
+    </div>
+    <div class="bottom-placeholder"></div>
+</body>
+</html>

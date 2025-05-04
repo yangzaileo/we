@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Windows</title>
+    <style>
+        * {
+            font-weight: 100;
+            font-family: 微软雅黑, sans-serif;
+            user-select: none;
+        }
+        body {
+            margin: 0;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            display: inline;
+        }
+        .header .home-page {
+            text-decoration: none;
+            color: #000;
+            font-size: 17.5px;
+        }
+        .header .home-page:hover {
+            text-decoration: underline;
+            color: #0000f0;
+        }
+        .header .home-page:active {
+            color: #551a8b;
+        }
+        .download {
+            display: flex;
+            justify-content: center;
+        }
+        .message {
+            text-align: center;
+        }
+        .wxped2k {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .bottom-placeholder {
+            height: 100px;
+        }
+    </style>
+    <script>
+        function copyText(version) {
+            const magnetLinks = {
+                wxped2k: "ed2k://|file|zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_x14-80404.iso|630239232|CD0900AFA058ACB6345761969CBCBFF4|/"
+            };
+        
+            const magnetLink = magnetLinks[version];
+            if (magnetLink) {
+                navigator.clipboard.writeText(magnetLink).then(() => {
+                    document.getElementById('message').textContent = 'BT(或ed2k)已复制';
+                    setTimeout(() => {
+                        document.getElementById('message').textContent = '等待处理复制任务中';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                    document.getElementById('message').textContent = '复制失败';
+                });
+            } else {
+                document.getElementById('message').textContent = '未找到对应的BT磁力链(或ed2k)';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title1">Windows XP</h1><br>
+        <a href="./sf-cn.html" class="home-page">返回首页</a>
+    </div>
+    <h2 class="t">状态/复制</h2>
+    <div class="message" id="message">等待处理复制任务中</div>
+    <h2 class="t1">详情信息</h2>
+    <div class="content">
+        <p>Windows XP 是微软于 2001 年发布的一款经典操作系统，它在用户界面、系统稳定性和兼容性方面进行了大量改进，是 Windows 系列中使用最广泛、最受欢迎的操作系<br>统之一。Windows XP 的发布标志着 Windows 系统从 Windows 9x 系列<br>向 NT 系列的全面过渡，它结合了 Windows 2000 的稳定性和 Windows Me 的用户体验。</p>
+        <p>厂商: Microsoft(微软)</p>
+        <p>发布日期: 2001年10月25日</p>
+        <p>主流支持结束日期: 2006年4月14日</p>
+        <p>延长支持结束日期: 2014年4月8日</p>
+        <p>特点: 用户界面、安全性......</p>
+    </div>
+    <h2 class="t2">下载方式/版本</h2>
+    <div class="download">
+        <div class="dc">
+            <p>Windows XP Professional with Service Pack 3 (x86) - CD (Chinese-Simplified)</p>
+            <div onclick="copyText('wxped2k')" class="wxped2k">ed2k(点击复制)</div>
+        </div>
+    </div>
+    <div class="bottom-placeholder"></div>
+</body>
+</html>
